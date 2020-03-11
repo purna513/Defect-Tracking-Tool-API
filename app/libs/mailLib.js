@@ -7,17 +7,7 @@ let signUpMail = (email, fullName) => {
 
     // Generate test SMTP service account from ethereal.email
     // Only needed if you don't have a real mail account for testing
-    /* nodemailer.createTestAccount((err, account) => {
-        // create reusable transporter object using the default SMTP transport
-        let transporter = nodemailer.createTransport({
-            host: 'smtp.gmail.com',
-            port: 587,
-            secure: false, // true for 465, false for other ports
-            auth: {
-                user: appConfig.email, // generated ethereal user
-                pass: appConfig.password // generated ethereal password
-            }
-        }); */
+     
 		
 		let account = {
         user: 'blikesekhar@gmail.com',
@@ -41,7 +31,7 @@ let signUpMail = (email, fullName) => {
             html: `<html>
 
             <head>
-                <title>Issue Tracking Tool</title>
+                <title>Defect Tracking Tool</title>
                 <meta name="viewport" content="width=device-width, initial-scale=1">
                 <style>
                     * {
@@ -154,7 +144,6 @@ let signUpMail = (email, fullName) => {
             // Message sent: <b658f8ca-6296-ccf4-8306-87d57a0b4321@example.com>
             // Preview URL: https://ethereal.email/message/WaQKMgKddxQDoou...
         });
-    });
 }
 
 
@@ -163,18 +152,20 @@ let forgotPasswordMail = (email, userId) => {
 
     // Generate test SMTP service account from ethereal.email
     // Only needed if you don't have a real mail account for testing
-    nodemailer.createTestAccount((err, account) => {
-        // create reusable transporter object using the default SMTP transport
-        let transporter = nodemailer.createTransport({
-            host: 'smtp.gmail.com',
-            port: 587,
-            secure: false, // true for 465, false for other ports
-            auth: {
-                user: appConfig.email, // generated ethereal user
-                pass: appConfig.password // generated ethereal password
-            }
-        });
     
+    
+		let account = {
+            user: 'blikesekhar@gmail.com',
+            pass: 'Purna@1234'  
+            }
+    
+            let transporter = nodemailer.createTransport({
+                service: 'gmail', 
+                    auth: {
+                    user: account.user, 
+                    pass: account.pass 
+                }
+            });
         // setup email data with unicode symbols
         let mailOptions = {
             from: '"Fred Foo 👻" <laffingDragons@gmail.com>', // sender address
@@ -297,25 +288,27 @@ let forgotPasswordMail = (email, userId) => {
             // Message sent: <b658f8ca-6296-ccf4-8306-87d57a0b4321@example.com>
             // Preview URL: https://ethereal.email/message/WaQKMgKddxQDoou...
         });
-    });
 }
 
 let invitationMail = (roomName, reciverEmail, link, senderName) => {
 
     // Generate test SMTP service account from ethereal.email
     // Only needed if you don't have a real mail account for testing
-    nodemailer.createTestAccount((err, account) => {
         // create reusable transporter object using the default SMTP transport
-        let transporter = nodemailer.createTransport({
-            host: 'smtp.gmail.com',
-            port: 587,
-            secure: false, // true for 465, false for other ports
-            auth: {
-                user: appConfig.email, // generated ethereal user
-                pass: appConfig.password // generated ethereal password
-            }
-        });
+        
     
+		let account = {
+            user: 'blikesekhar@gmail.com',
+            pass: 'Purna@1234'  
+            }
+    
+            let transporter = nodemailer.createTransport({
+                service: 'gmail', 
+                    auth: {
+                    user: account.user, 
+                    pass: account.pass 
+                }
+            });
         // setup email data with unicode symbols
         let mailOptions = {
             from: '"Fred Foo 👻" <laffingDragons@gmail.com>', // sender address
@@ -431,7 +424,6 @@ let invitationMail = (roomName, reciverEmail, link, senderName) => {
             // Message sent: <b658f8ca-6296-ccf4-8306-87d57a0b4321@example.com>
             // Preview URL: https://ethereal.email/message/WaQKMgKddxQDoou...
         });
-    });
 }
 
 
